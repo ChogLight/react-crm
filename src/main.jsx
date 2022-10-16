@@ -2,16 +2,24 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, Router, RouterProvider} from 'react-router-dom'
-
+import Layout from './components/Layout'
+import NewCustomer from './pages/NewCustomer'
+import Index from './pages/Index'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element:<h1>Start</h1>
-  },
-  {
-    path: '/about',
-    element: <h1>About us</h1>
+    element:<Layout/>,
+    children: [
+      {
+        index: true,
+        element:<Index/>
+      },
+      {
+        path: '/customers/new',
+        element: <NewCustomer/>
+      }
+    ]
   }
 ])
 
